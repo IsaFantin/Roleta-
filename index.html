@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar é Bom, Levar é Melhor!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fundo Neon de LED -->
+  <div class="fundo-espaco" id="fundo"></div>
+
+  <!-- Canvas para o Efeito de Luzes/Partículas LED Caindo -->
+  <canvas id="canvasChuva"></canvas>
+
+  <div class="container">
+    <h1>COMPRAR É BOM, LEVAR É MELHOR!</h1>
+
+    <div class="roleta-moldura">
+      <div class="ponteiro"></div>
+      <div class="roleta" id="roleta">
+        <div class="miolo-neon"></div>
+      </div>
+    </div>
+
+    <div class="controles">
+      <label for="corInput">Aposte na cor (ciano ou rosa) ou número (1 a 36):</label>
+      <input type="text" id="corInput" placeholder="Ex: ciano, rosa ou 12">
+      <button id="btnGirar">GIRAR ROLETA</button>
+    </div>
+
+    <h2 id="mensagem"></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

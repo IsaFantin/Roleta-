@@ -1,0 +1,201 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #05050d;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fundo LED Pulsante */
+.fundo-espaco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: radial-gradient(circle at center, #0f0c29 0%, #05050d 90%);
+  transition: all 0.8s ease;
+}
+
+.fundo-espaco.girando {
+  animation: pulsoLED 0.8s infinite alternate;
+}
+
+@keyframes pulsoLED {
+  0% { background: radial-gradient(circle at center, #240b36 0%, #05050d 90%); }
+  100% { background: radial-gradient(circle at center, #00334e 0%, #05050d 90%); }
+}
+
+.fundo-espaco.vitoria {
+  background: radial-gradient(circle at center, #00b894 0%, #00cec9 40%, #05050d 90%);
+}
+
+.fundo-espaco.derrota {
+  background: radial-gradient(circle at center, #d63031 0%, #ff7675 40%, #05050d 90%);
+}
+
+/* Canvas para as luzes LED caindo */
+#canvasChuva {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Card Principal */
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(10, 10, 25, 0.88);
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.4), inset 0 0 15px rgba(255, 0, 127, 0.3);
+  max-width: 440px;
+  width: 90%;
+  border: 2px solid #00f2fe;
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  margin-top: 0;
+  color: #00f2fe;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+  text-transform: uppercase;
+}
+
+/* Moldura LED */
+.roleta-moldura {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background: #080811;
+  border: 6px solid #00f2fe;
+  box-shadow: 0 0 25px #00f2fe, inset 0 0 25px rgba(0,0,0,0.9);
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Ponteiro Neon */
+.ponteiro {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 22px solid #ff007f;
+  z-index: 10;
+  filter: drop-shadow(0px 0px 8px #ff007f);
+}
+
+.roleta {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+}
+
+.miolo-neon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff007f 0%, #00f2fe 100%);
+  border: 2px solid #fff;
+  box-shadow: 0 0 15px #ff007f;
+  z-index: 5;
+}
+
+.numero-fatia {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 20px;
+  height: 50%;
+  margin-left: -10px;
+  transform-origin: bottom center;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  padding-top: 4px;
+  box-sizing: border-box;
+  text-shadow: 0 0 3px #000;
+}
+
+.controles {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-size: 13px;
+  color: #a0a0c0;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ff007f;
+  background-color: #090919;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  box-shadow: inset 0 0 8px rgba(255, 0, 127, 0.3);
+}
+
+button {
+  padding: 14px;
+  background: linear-gradient(90deg, #00f2fe 0%, #ff007f 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.7);
+}
+
+button:disabled {
+  background: #333;
+  color: #777;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+#mensagem {
+  margin-top: 18px;
+  font-size: 16px;
+  min-height: 24px;
+}
